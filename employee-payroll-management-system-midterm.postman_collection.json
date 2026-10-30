@@ -1,0 +1,1743 @@
+{
+  "info": {
+    "name": "employee-payroll-management-system-midterm",
+    "description": "Rukundo Levis - 27507 - Employee Payroll Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Part A",
+      "item": [
+        {
+          "name": "Payroll Areas",
+          "item": [
+            {
+              "name": "A2 - Save Payroll Area (Taxation)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-areas/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-areas",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Taxation\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payroll Area (Pensions)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-areas/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-areas",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Pensions\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payroll Area (Allowances)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-areas/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-areas",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Allowances\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payroll Area (Loans)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-areas/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-areas",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Loans\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Get all Payroll Area",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-areas/all",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-areas",
+                    "all"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Get Payroll Area by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-areas/{{taxationId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-areas",
+                    "{{taxationId}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Get Payroll Area by id (404)",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-areas/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-areas",
+                    "{{unknownId}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Update Payroll Area",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-areas/update/{{taxationId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-areas",
+                    "update",
+                    "{{taxationId}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Taxation\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Update Payroll Area (404)",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-areas/update/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-areas",
+                    "update",
+                    "{{unknownId}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Taxation\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Delete Payroll Area (404)",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-areas/delete/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-areas",
+                    "delete",
+                    "{{unknownId}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Delete Payroll Area",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-areas/delete/{{deleteId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-areas",
+                    "delete",
+                    "{{deleteId}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Branches",
+          "item": [
+            {
+              "name": "A2 - Save Branch (1)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/branches/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "branches",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"branchNumber\": 1,\n  \"name\": \"Kigali Main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Branch (2)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/branches/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "branches",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"branchNumber\": 2,\n  \"name\": \"Huye\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Branch (3)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/branches/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "branches",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"branchNumber\": 3,\n  \"name\": \"Musanze\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Branch (4)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/branches/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "branches",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"branchNumber\": 4,\n  \"name\": \"Rubavu\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Get all Branch",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/branches/all",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "branches",
+                    "all"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Get Branch by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/branches/{{branch1Id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "branches",
+                    "{{branch1Id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Get Branch by id (404)",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/branches/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "branches",
+                    "{{unknownId}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Update Branch",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/branches/update/{{branch1Id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "branches",
+                    "update",
+                    "{{branch1Id}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"branchNumber\": 1,\n  \"name\": \"Kigali Main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Update Branch (404)",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/branches/update/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "branches",
+                    "update",
+                    "{{unknownId}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"branchNumber\": 1,\n  \"name\": \"Kigali Main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Delete Branch (404)",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/branches/delete/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "branches",
+                    "delete",
+                    "{{unknownId}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Delete Branch",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/branches/delete/{{deleteId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "branches",
+                    "delete",
+                    "{{deleteId}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Payroll Officers",
+          "item": [
+            {
+              "name": "A2 - Save Payroll Officer (Jean Mugisha)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-officers/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-officers",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"Jean\",\n  \"lastName\": \"Mugisha\",\n  \"email\": \"jean.mugisha@payroll.rw\",\n  \"branch\": {\n    \"id\": \"{{branch1Id}}\"\n  },\n  \"payrollAreas\": [\n    {\n      \"id\": \"{{taxationId}}\"\n    },\n    {\n      \"id\": \"{{pensionsId}}\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payroll Officer (Claudine Uwimana)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-officers/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-officers",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"Claudine\",\n  \"lastName\": \"Uwimana\",\n  \"email\": \"claudine.uwimana@payroll.rw\",\n  \"branch\": {\n    \"id\": \"{{branch2Id}}\"\n  },\n  \"payrollAreas\": [\n    {\n      \"id\": \"{{allowancesId}}\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payroll Officer (Olivier Nshimiyimana)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-officers/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-officers",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"Olivier\",\n  \"lastName\": \"Nshimiyimana\",\n  \"email\": \"olivier.nshimiyimana@payroll.rw\",\n  \"branch\": {\n    \"id\": \"{{branch3Id}}\"\n  },\n  \"payrollAreas\": [\n    {\n      \"id\": \"{{pensionsId}}\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Get all Payroll Officer",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-officers/all",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-officers",
+                    "all"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Get Payroll Officer by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-officers/{{officer1Id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-officers",
+                    "{{officer1Id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Get Payroll Officer by id (404)",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-officers/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-officers",
+                    "{{unknownId}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Update Payroll Officer",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-officers/update/{{officer1Id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-officers",
+                    "update",
+                    "{{officer1Id}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"Jean\",\n  \"lastName\": \"Mugisha\",\n  \"email\": \"jean.mugisha@payroll.rw\",\n  \"branch\": {\n    \"id\": \"{{branch1Id}}\"\n  },\n  \"payrollAreas\": [\n    {\n      \"id\": \"{{taxationId}}\"\n    },\n    {\n      \"id\": \"{{pensionsId}}\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Update Payroll Officer (404)",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-officers/update/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-officers",
+                    "update",
+                    "{{unknownId}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"Jean\",\n  \"lastName\": \"Mugisha\",\n  \"email\": \"jean.mugisha@payroll.rw\",\n  \"branch\": {\n    \"id\": \"{{branch1Id}}\"\n  },\n  \"payrollAreas\": [\n    {\n      \"id\": \"{{taxationId}}\"\n    },\n    {\n      \"id\": \"{{pensionsId}}\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Delete Payroll Officer (404)",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-officers/delete/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-officers",
+                    "delete",
+                    "{{unknownId}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Delete Payroll Officer",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payroll-officers/delete/{{deleteId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payroll-officers",
+                    "delete",
+                    "{{deleteId}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Employees",
+          "item": [
+            {
+              "name": "A2 - Save Employee (EMP-0042)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "employees",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"Aline\",\n  \"lastName\": \"Uwase\",\n  \"employeeNumber\": \"EMP-0042\",\n  \"position\": \"Accountant\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Employee (EMP-0043)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "employees",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"Eric\",\n  \"lastName\": \"Habimana\",\n  \"employeeNumber\": \"EMP-0043\",\n  \"position\": \"Accountant\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Employee (EMP-0044)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "employees",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"Grace\",\n  \"lastName\": \"Mukamana\",\n  \"employeeNumber\": \"EMP-0044\",\n  \"position\": \"HR Officer\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Employee (EMP-0045)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "employees",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"Patrick\",\n  \"lastName\": \"Niyonzima\",\n  \"employeeNumber\": \"EMP-0045\",\n  \"position\": \"Software Developer\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Employee (EMP-0046)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "employees",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"Diane\",\n  \"lastName\": \"Ingabire\",\n  \"employeeNumber\": \"EMP-0046\",\n  \"position\": \"Sales Manager\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Get all Employee",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees/all",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "employees",
+                    "all"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Get Employee by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees/{{employee1Id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "employees",
+                    "{{employee1Id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Get Employee by id (404)",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "employees",
+                    "{{unknownId}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Update Employee",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees/update/{{employee1Id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "employees",
+                    "update",
+                    "{{employee1Id}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"Aline\",\n  \"lastName\": \"Uwase\",\n  \"employeeNumber\": \"EMP-0042\",\n  \"position\": \"Accountant\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Update Employee (404)",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees/update/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "employees",
+                    "update",
+                    "{{unknownId}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"Aline\",\n  \"lastName\": \"Uwase\",\n  \"employeeNumber\": \"EMP-0042\",\n  \"position\": \"Accountant\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Delete Employee (404)",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees/delete/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "employees",
+                    "delete",
+                    "{{unknownId}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Delete Employee",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/employees/delete/{{deleteId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "employees",
+                    "delete",
+                    "{{deleteId}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Payslips",
+          "item": [
+            {
+              "name": "A2 - Save Payslip 1 (2026-10-20 REJECTED)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payDate\": \"2026-10-20\",\n  \"status\": \"REJECTED\",\n  \"period\": \"October 2026\",\n  \"grossSalary\": 450000,\n  \"employee\": {\n    \"id\": \"{{employee1Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer1Id}}\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payslip 2 (2026-10-20 DRAFTED)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payDate\": \"2026-10-20\",\n  \"status\": \"DRAFTED\",\n  \"period\": \"October 2026\",\n  \"grossSalary\": 420000,\n  \"employee\": {\n    \"id\": \"{{employee2Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer1Id}}\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payslip 3 (2026-10-25 APPROVED)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payDate\": \"2026-10-25\",\n  \"status\": \"APPROVED\",\n  \"period\": \"October 2026\",\n  \"grossSalary\": 450000,\n  \"employee\": {\n    \"id\": \"{{employee1Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer2Id}}\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payslip 4 (2026-10-28 APPROVED)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payDate\": \"2026-10-28\",\n  \"status\": \"APPROVED\",\n  \"period\": \"October 2026\",\n  \"grossSalary\": 380000,\n  \"employee\": {\n    \"id\": \"{{employee3Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer2Id}}\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payslip 5 (2026-10-31 REVIEWED)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payDate\": \"2026-10-31\",\n  \"status\": \"REVIEWED\",\n  \"period\": \"October 2026\",\n  \"grossSalary\": 600000,\n  \"employee\": {\n    \"id\": \"{{employee4Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer3Id}}\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payslip 6 (2026-11-05 DRAFTED)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payDate\": \"2026-11-05\",\n  \"status\": \"DRAFTED\",\n  \"period\": \"November 2026\",\n  \"grossSalary\": 450000,\n  \"employee\": {\n    \"id\": \"{{employee1Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer3Id}}\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payslip 7 (2026-11-10 REVIEWED)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payDate\": \"2026-11-10\",\n  \"status\": \"REVIEWED\",\n  \"period\": \"November 2026\",\n  \"grossSalary\": 520000,\n  \"employee\": {\n    \"id\": \"{{employee5Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer1Id}}\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payslip 8 (2026-11-15 APPROVED)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payDate\": \"2026-11-15\",\n  \"status\": \"APPROVED\",\n  \"period\": \"November 2026\",\n  \"grossSalary\": 420000,\n  \"employee\": {\n    \"id\": \"{{employee2Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer2Id}}\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payslip 9 (2026-11-20 DRAFTED)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payDate\": \"2026-11-20\",\n  \"status\": \"DRAFTED\",\n  \"period\": \"November 2026\",\n  \"grossSalary\": 380000,\n  \"employee\": {\n    \"id\": \"{{employee3Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer3Id}}\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Save Payslip 10 (2026-11-25 DRAFTED)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payDate\": \"2026-11-25\",\n  \"status\": \"DRAFTED\",\n  \"period\": \"November 2026\",\n  \"grossSalary\": 600000,\n  \"employee\": {\n    \"id\": \"{{employee4Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer1Id}}\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Get all Payslip",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/all",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "all"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Get Payslip by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/{{payslipId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "{{payslipId}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Get Payslip by id (404)",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "{{unknownId}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Update Payslip",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/update/{{payslipId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "update",
+                    "{{payslipId}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payDate\": \"2026-10-20\",\n  \"status\": \"DRAFTED\",\n  \"period\": \"October 2026\",\n  \"grossSalary\": 420000,\n  \"employee\": {\n    \"id\": \"{{employee2Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer1Id}}\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Update Payslip (404)",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/update/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "update",
+                    "{{unknownId}}"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payDate\": \"2026-10-20\",\n  \"status\": \"DRAFTED\",\n  \"period\": \"October 2026\",\n  \"grossSalary\": 420000,\n  \"employee\": {\n    \"id\": \"{{employee2Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer1Id}}\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "A2 - Delete Payslip (404)",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/delete/{{unknownId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "delete",
+                    "{{unknownId}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "A2 - Delete Payslip",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payslips/delete/{{deleteId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payslips",
+                    "delete",
+                    "{{deleteId}}"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "unknownId",
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "key": "taxationId",
+      "value": ""
+    },
+    {
+      "key": "pensionsId",
+      "value": ""
+    },
+    {
+      "key": "allowancesId",
+      "value": ""
+    },
+    {
+      "key": "loansId",
+      "value": ""
+    },
+    {
+      "key": "branch1Id",
+      "value": ""
+    },
+    {
+      "key": "branch2Id",
+      "value": ""
+    },
+    {
+      "key": "branch3Id",
+      "value": ""
+    },
+    {
+      "key": "branch4Id",
+      "value": ""
+    },
+    {
+      "key": "officer1Id",
+      "value": ""
+    },
+    {
+      "key": "officer2Id",
+      "value": ""
+    },
+    {
+      "key": "officer3Id",
+      "value": ""
+    },
+    {
+      "key": "employee1Id",
+      "value": ""
+    },
+    {
+      "key": "employee2Id",
+      "value": ""
+    },
+    {
+      "key": "employee3Id",
+      "value": ""
+    },
+    {
+      "key": "employee4Id",
+      "value": ""
+    },
+    {
+      "key": "employee5Id",
+      "value": ""
+    },
+    {
+      "key": "payslipId",
+      "value": ""
+    },
+    {
+      "key": "deleteId",
+      "value": ""
+    }
+  ]
+}
