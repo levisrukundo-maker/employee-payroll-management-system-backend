@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import rw.rukund.payroll.model.Payslip;
+import rw.rukund.payroll.model.PayslipStatus;
 import rw.rukund.payroll.service.PayslipService;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -64,5 +67,17 @@ public class PayslipController {
 		} else {
 			return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
 		}
+	}
+
+	@GetMapping("/by-status")
+	public ResponseEntity<List<Payslip>> getPayslipsByStatus(@RequestParam PayslipStatus status) {
+		return new ResponseEntity<>(payslipService.getPayslipsByStatus(status), HttpStatus.OK);
+	}
+
+	@GetMapping("/between")
+	public ResponseEntity<List<Payslip>> getPayslipsBetween(@RequestParam String start, @RequestParam String end) {
+		LocalDate startDate = LocalDate.parse(start);
+		LocalDate endDate = LocalDate.parse(end);
+		return new ResponseEntity<>(payslipService.getPayslipsBetween(startDate, endDate), HttpStatus.OK);
 	}
 }

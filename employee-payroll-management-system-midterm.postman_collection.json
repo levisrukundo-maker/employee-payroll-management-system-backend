@@ -1656,6 +1656,135 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Part B",
+      "item": [
+        {
+          "name": "B1 - Employees by position",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/by-position?position=accountant",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "employees",
+                "by-position"
+              ],
+              "query": [
+                {
+                  "key": "position",
+                  "value": "accountant"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "B1 - Employees by position (empty list)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/by-position?position=pilot",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "employees",
+                "by-position"
+              ],
+              "query": [
+                {
+                  "key": "position",
+                  "value": "pilot"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "B2 - Payslips by status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payslips/by-status?status=DRAFTED",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payslips",
+                "by-status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "DRAFTED"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "B2 - Payslips by status (invalid status 400)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payslips/by-status?status=PAID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payslips",
+                "by-status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "PAID"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "B3 - Payslips between dates",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payslips/between?start=2026-10-01&end=2026-10-31",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payslips",
+                "between"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "2026-10-01"
+                },
+                {
+                  "key": "end",
+                  "value": "2026-10-31"
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
   ],
   "variable": [

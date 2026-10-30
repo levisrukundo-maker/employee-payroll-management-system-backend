@@ -49,4 +49,8 @@ public class EmployeeService {
 		employeeRepository.deleteById(id);
 		return "Employee deleted successfully";
 	}
+
+	public List<Employee> getEmployeesByPosition(String position) {
+		return employeeRepository.findByPositionIgnoreCaseOrderByLastNameAsc(position);
+	}
 }

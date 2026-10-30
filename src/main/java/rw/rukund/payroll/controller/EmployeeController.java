@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import rw.rukund.payroll.model.Employee;
 import rw.rukund.payroll.service.EmployeeService;
@@ -64,5 +65,10 @@ public class EmployeeController {
 		} else {
 			return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
 		}
+	}
+
+	@GetMapping("/by-position")
+	public ResponseEntity<List<Employee>> getEmployeesByPosition(@RequestParam String position) {
+		return new ResponseEntity<>(employeeService.getEmployeesByPosition(position), HttpStatus.OK);
 	}
 }

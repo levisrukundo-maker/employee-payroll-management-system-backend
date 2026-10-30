@@ -3,8 +3,10 @@ package rw.rukund.payroll.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rw.rukund.payroll.model.Payslip;
+import rw.rukund.payroll.model.PayslipStatus;
 import rw.rukund.payroll.repository.PayslipRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -50,5 +52,13 @@ public class PayslipService {
 		}
 		payslipRepository.deleteById(id);
 		return "Payslip deleted successfully";
+	}
+
+	public List<Payslip> getPayslipsByStatus(PayslipStatus status) {
+		return payslipRepository.findByStatusOrderByPayDateAsc(status);
+	}
+
+	public List<Payslip> getPayslipsBetween(LocalDate start, LocalDate end) {
+		return payslipRepository.findByPayDateBetweenOrderByPayDateAsc(start, end);
 	}
 }
