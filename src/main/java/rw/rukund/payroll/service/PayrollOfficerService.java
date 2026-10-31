@@ -50,4 +50,8 @@ public class PayrollOfficerService {
 		payrollOfficerRepository.deleteById(id);
 		return "Payroll officer deleted successfully";
 	}
+
+	public List<PayrollOfficer> getPayrollOfficersByPayrollArea(String name) {
+		return payrollOfficerRepository.findByPayrollAreaName(name);
+	}
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import rw.rukund.payroll.model.PayrollOfficer;
 import rw.rukund.payroll.service.PayrollOfficerService;
@@ -64,5 +65,10 @@ public class PayrollOfficerController {
 		} else {
 			return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
 		}
+	}
+
+	@GetMapping("/by-payroll-area")
+	public ResponseEntity<List<PayrollOfficer>> getPayrollOfficersByPayrollArea(@RequestParam String name) {
+		return new ResponseEntity<>(payrollOfficerService.getPayrollOfficersByPayrollArea(name), HttpStatus.OK);
 	}
 }

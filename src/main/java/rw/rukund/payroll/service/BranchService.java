@@ -47,4 +47,8 @@ public class BranchService {
 		branchRepository.deleteById(id);
 		return "Branch deleted successfully";
 	}
+
+	public List<Branch> getFreeBranches() {
+		return branchRepository.findFreeBranches();
+	}
 }

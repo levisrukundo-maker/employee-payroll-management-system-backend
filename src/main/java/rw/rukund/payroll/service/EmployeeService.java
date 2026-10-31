@@ -53,4 +53,8 @@ public class EmployeeService {
 	public List<Employee> getEmployeesByPosition(String position) {
 		return employeeRepository.findByPositionIgnoreCaseOrderByLastNameAsc(position);
 	}
+
+	public List<Employee> getEmployeesOfPayrollOfficer(UUID payrollOfficerId) {
+		return employeeRepository.findEmployeesOfPayrollOfficer(payrollOfficerId);
+	}
 }

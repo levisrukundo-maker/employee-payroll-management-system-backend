@@ -65,4 +65,9 @@ public class PayrollAreaController {
 			return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
 		}
 	}
+
+	@GetMapping("/unused")
+	public ResponseEntity<List<PayrollArea>> getUnusedPayrollAreas() {
+		return new ResponseEntity<>(payrollAreaService.getUnusedPayrollAreas(), HttpStatus.OK);
+	}
 }

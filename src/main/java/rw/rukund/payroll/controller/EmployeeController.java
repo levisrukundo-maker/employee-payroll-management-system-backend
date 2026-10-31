@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import rw.rukund.payroll.model.Employee;
+import rw.rukund.payroll.model.PayrollOfficer;
 import rw.rukund.payroll.service.EmployeeService;
+import rw.rukund.payroll.service.PayrollOfficerService;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +27,9 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeService;
+
+	@Autowired
+	private PayrollOfficerService payrollOfficerService;
 
 	@PostMapping("/save")
 	public ResponseEntity<String> saveEmployee(@RequestBody Employee employee) {
@@ -70,5 +75,15 @@ public class EmployeeController {
 	@GetMapping("/by-position")
 	public ResponseEntity<List<Employee>> getEmployeesByPosition(@RequestParam String position) {
 		return new ResponseEntity<>(employeeService.getEmployeesByPosition(position), HttpStatus.OK);
+	}
+
+	@GetMapping("/of-payroll-officer/{payrollOfficerId}")
+	public ResponseEntity<?> getEmployeesOfPayrollOfficer(@PathVariable UUID payrollOfficerId) {
+		Optional<PayrollOfficer> payrollOfficer = payrollOfficerService.getPayrollOfficerById(payrollOfficerId);
+		if (payrollOfficer.isEmpty()) {
+			return new ResponseEntity<>("The payroll officer with that id does not exist", HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<>(employeeService.getEmployeesOfPayrollOfficer(payrollOfficerId), HttpStatus.OK);
+		}
 	}
 }

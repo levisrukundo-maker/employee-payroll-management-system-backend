@@ -1785,6 +1785,133 @@
           }
         }
       ]
+    },
+    {
+      "name": "Part C",
+      "item": [
+        {
+          "name": "C1 - Payroll officers by payroll area",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payroll-officers/by-payroll-area?name=taxation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payroll-officers",
+                "by-payroll-area"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "taxation"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "C1 - Payroll officers by payroll area (nobody holds it)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payroll-officers/by-payroll-area?name=loans",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payroll-officers",
+                "by-payroll-area"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "loans"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "C2 - Free branches",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/branches/free",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "branches",
+                "free"
+              ]
+            }
+          }
+        },
+        {
+          "name": "C3 - Payroll areas nobody holds",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payroll-areas/unused",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payroll-areas",
+                "unused"
+              ]
+            }
+          }
+        },
+        {
+          "name": "C4 - Employees of a payroll officer",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/of-payroll-officer/{{officer1Id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "employees",
+                "of-payroll-officer",
+                "{{officer1Id}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "C4 - Employees of a payroll officer (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/employees/of-payroll-officer/{{unknownId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "employees",
+                "of-payroll-officer",
+                "{{unknownId}}"
+              ]
+            }
+          }
+        }
+      ]
     }
   ],
   "variable": [
@@ -1798,71 +1925,71 @@
     },
     {
       "key": "taxationId",
-      "value": ""
+      "value": "ef49dbfe-36ce-4f60-941c-71743c339f08"
     },
     {
       "key": "pensionsId",
-      "value": ""
+      "value": "6239414b-1cfb-42d5-8476-65c6389b1783"
     },
     {
       "key": "allowancesId",
-      "value": ""
+      "value": "21f30289-285d-4b17-9c22-22957bc00ae2"
     },
     {
       "key": "loansId",
-      "value": ""
+      "value": "43ce8637-b1dd-4fb7-8deb-474efd175a77"
     },
     {
       "key": "branch1Id",
-      "value": ""
+      "value": "54407bb9-5c21-4fd8-82c7-86ad8dd6714e"
     },
     {
       "key": "branch2Id",
-      "value": ""
+      "value": "5e377a70-3264-44c9-8347-00e3465a2b44"
     },
     {
       "key": "branch3Id",
-      "value": ""
+      "value": "97dd50f0-4e1d-42a9-ad52-ce5247dca36e"
     },
     {
       "key": "branch4Id",
-      "value": ""
+      "value": "fdb8cfc7-1dcd-4abd-8552-c9624897e010"
     },
     {
       "key": "officer1Id",
-      "value": ""
+      "value": "e506b52a-21d4-45b3-a717-9ae1292039bd"
     },
     {
       "key": "officer2Id",
-      "value": ""
+      "value": "8a24f5fc-f52c-42bc-8eb1-abcfff16f16f"
     },
     {
       "key": "officer3Id",
-      "value": ""
+      "value": "45464989-dc28-49a3-91d3-0af7eb465bc9"
     },
     {
       "key": "employee1Id",
-      "value": ""
+      "value": "c1af2de7-7111-47ec-a55a-99252d7c9263"
     },
     {
       "key": "employee2Id",
-      "value": ""
+      "value": "52312e9e-868d-436d-b3d6-44de79c25a9f"
     },
     {
       "key": "employee3Id",
-      "value": ""
+      "value": "34581b07-f464-442e-a6bf-1ed0b5f8f4fd"
     },
     {
       "key": "employee4Id",
-      "value": ""
+      "value": "eda20ac1-94c2-4fcf-a791-a5441d7590f2"
     },
     {
       "key": "employee5Id",
-      "value": ""
+      "value": "2ec9389e-6109-4726-b768-737db828a12d"
     },
     {
       "key": "payslipId",
-      "value": ""
+      "value": "abd40635-b35a-4e50-8358-228bac4e76a3"
     },
     {
       "key": "deleteId",

@@ -46,4 +46,8 @@ public class PayrollAreaService {
 		payrollAreaRepository.deleteById(id);
 		return "Payroll area deleted successfully";
 	}
+
+	public List<PayrollArea> getUnusedPayrollAreas() {
+		return payrollAreaRepository.findUnusedPayrollAreas();
+	}
 }
