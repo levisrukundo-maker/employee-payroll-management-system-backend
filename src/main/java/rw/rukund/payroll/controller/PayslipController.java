@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -31,7 +32,13 @@ public class PayslipController {
 	@PostMapping("/save")
 	public ResponseEntity<String> savePayslip(@RequestBody Payslip payslip) {
 		String message = payslipService.savePayslip(payslip);
-		return new ResponseEntity<>(message, HttpStatus.CREATED);
+		if (message.equals("Payslip saved successfully")) {
+			return new ResponseEntity<>(message, HttpStatus.CREATED);
+		} else if (message.equals("Payslip date cannot be in the past")) {
+			return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+		}
 	}
 
 	@GetMapping("/all")
@@ -79,5 +86,17 @@ public class PayslipController {
 		LocalDate startDate = LocalDate.parse(start);
 		LocalDate endDate = LocalDate.parse(end);
 		return new ResponseEntity<>(payslipService.getPayslipsBetween(startDate, endDate), HttpStatus.OK);
+	}
+
+	@PatchMapping("/{id}/status")
+	public ResponseEntity<String> updatePayslipStatus(@PathVariable UUID id, @RequestParam PayslipStatus status) {
+		String message = payslipService.updatePayslipStatus(id, status);
+		if (message.equals("Payslip status updated successfully")) {
+			return new ResponseEntity<>(message, HttpStatus.OK);
+		} else if (message.equals("The payslip with that id does not exist")) {
+			return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+		}
 	}
 }

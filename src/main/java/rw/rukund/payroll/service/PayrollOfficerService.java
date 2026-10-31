@@ -2,7 +2,11 @@ package rw.rukund.payroll.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import rw.rukund.payroll.model.Branch;
+import rw.rukund.payroll.model.PayrollArea;
 import rw.rukund.payroll.model.PayrollOfficer;
+import rw.rukund.payroll.repository.BranchRepository;
+import rw.rukund.payroll.repository.PayrollAreaRepository;
 import rw.rukund.payroll.repository.PayrollOfficerRepository;
 
 import java.util.List;
@@ -14,6 +18,12 @@ public class PayrollOfficerService {
 
 	@Autowired
 	private PayrollOfficerRepository payrollOfficerRepository;
+
+	@Autowired
+	private PayrollAreaRepository payrollAreaRepository;
+
+	@Autowired
+	private BranchRepository branchRepository;
 
 	public String savePayrollOfficer(PayrollOfficer payrollOfficer) {
 		payrollOfficerRepository.save(payrollOfficer);
@@ -53,5 +63,43 @@ public class PayrollOfficerService {
 
 	public List<PayrollOfficer> getPayrollOfficersByPayrollArea(String name) {
 		return payrollOfficerRepository.findByPayrollAreaName(name);
+	}
+
+	public String addPayrollArea(UUID payrollOfficerId, UUID payrollAreaId) {
+		Optional<PayrollOfficer> existingOfficer = payrollOfficerRepository.findById(payrollOfficerId);
+		if (existingOfficer.isEmpty()) {
+			return "The payroll officer with that id does not exist";
+		}
+		Optional<PayrollArea> existingArea = payrollAreaRepository.findById(payrollAreaId);
+		if (existingArea.isEmpty()) {
+			return "That payroll area does not exist";
+		}
+		PayrollOfficer payrollOfficer = existingOfficer.get();
+		PayrollArea payrollArea = existingArea.get();
+		if (payrollOfficer.getPayrollAreas().contains(payrollArea)) {
+			return "The payroll officer already has that payroll area";
+		}
+		payrollOfficer.getPayrollAreas().add(payrollArea);
+		payrollOfficerRepository.save(payrollOfficer);
+		return "Payroll area added to the payroll officer";
+	}
+
+	public String changeBranch(UUID payrollOfficerId, int branchNumber) {
+		Optional<PayrollOfficer> existingOfficer = payrollOfficerRepository.findById(payrollOfficerId);
+		if (existingOfficer.isEmpty()) {
+			return "The payroll officer with that id does not exist";
+		}
+		Optional<Branch> existingBranch = branchRepository.findByBranchNumber(branchNumber);
+		if (existingBranch.isEmpty()) {
+			return "The branch with that branchNumber does not exist";
+		}
+		Branch branch = existingBranch.get();
+		if (payrollOfficerRepository.existsByBranch(branch)) {
+			return "That branch is taken by another payroll officer";
+		}
+		PayrollOfficer payrollOfficer = existingOfficer.get();
+		payrollOfficer.setBranch(branch);
+		payrollOfficerRepository.save(payrollOfficer);
+		return "Branch changed successfully";
 	}
 }

@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -70,5 +71,29 @@ public class PayrollOfficerController {
 	@GetMapping("/by-payroll-area")
 	public ResponseEntity<List<PayrollOfficer>> getPayrollOfficersByPayrollArea(@RequestParam String name) {
 		return new ResponseEntity<>(payrollOfficerService.getPayrollOfficersByPayrollArea(name), HttpStatus.OK);
+	}
+
+	@PutMapping("/{payrollOfficerId}/payroll-areas/{payrollAreaId}")
+	public ResponseEntity<String> addPayrollArea(@PathVariable UUID payrollOfficerId, @PathVariable UUID payrollAreaId) {
+		String message = payrollOfficerService.addPayrollArea(payrollOfficerId, payrollAreaId);
+		if (message.equals("Payroll area added to the payroll officer")) {
+			return new ResponseEntity<>(message, HttpStatus.OK);
+		} else if (message.equals("The payroll officer already has that payroll area")) {
+			return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+		} else {
+			return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@PatchMapping("/{payrollOfficerId}/branch")
+	public ResponseEntity<String> changeBranch(@PathVariable UUID payrollOfficerId, @RequestParam int branchNumber) {
+		String message = payrollOfficerService.changeBranch(payrollOfficerId, branchNumber);
+		if (message.equals("Branch changed successfully")) {
+			return new ResponseEntity<>(message, HttpStatus.OK);
+		} else if (message.equals("That branch is taken by another payroll officer")) {
+			return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+		} else {
+			return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+		}
 	}
 }

@@ -1912,6 +1912,362 @@
           }
         }
       ]
+    },
+    {
+      "name": "Part D",
+      "item": [
+        {
+          "name": "D1 - Safe saving (201, always DRAFTED)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/payslips/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payslips",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payDate\": \"2026-12-01\",\n  \"status\": \"APPROVED\",\n  \"period\": \"December 2026\",\n  \"grossSalary\": 520000,\n  \"employee\": {\n    \"id\": \"{{employee5Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer3Id}}\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "D1 - Safe saving (400 past date)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/payslips/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payslips",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payDate\": \"2026-10-01\",\n  \"period\": \"October 2026\",\n  \"grossSalary\": 450000,\n  \"employee\": {\n    \"id\": \"{{employee1Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer1Id}}\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "D1 - Safe saving (409 officer busy)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/payslips/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payslips",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payDate\": \"2026-11-25\",\n  \"period\": \"November 2026\",\n  \"grossSalary\": 450000,\n  \"employee\": {\n    \"id\": \"{{employee1Id}}\"\n  },\n  \"payrollOfficer\": {\n    \"id\": \"{{officer1Id}}\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "D2 - Status flow (200)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payslips/{{newPayslipId}}/status?status=REVIEWED",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payslips",
+                "{{newPayslipId}}",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "REVIEWED"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "D2 - Status flow (400 APPROVED to DRAFTED)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payslips/{{approvedPayslipId}}/status?status=DRAFTED",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payslips",
+                "{{approvedPayslipId}}",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "DRAFTED"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "D2 - Status flow (404)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payslips/{{unknownId}}/status?status=REVIEWED",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payslips",
+                "{{unknownId}}",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "REVIEWED"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "D3 - Add payroll area (200)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payroll-officers/{{officer3Id}}/payroll-areas/{{allowancesId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payroll-officers",
+                "{{officer3Id}}",
+                "payroll-areas",
+                "{{allowancesId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "D3 - Add payroll area (409 already has it)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payroll-officers/{{officer1Id}}/payroll-areas/{{taxationId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payroll-officers",
+                "{{officer1Id}}",
+                "payroll-areas",
+                "{{taxationId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "D3 - Add payroll area (404 officer)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payroll-officers/{{unknownId}}/payroll-areas/{{taxationId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payroll-officers",
+                "{{unknownId}}",
+                "payroll-areas",
+                "{{taxationId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "D3 - Add payroll area (404 area)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payroll-officers/{{officer1Id}}/payroll-areas/{{unknownId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payroll-officers",
+                "{{officer1Id}}",
+                "payroll-areas",
+                "{{unknownId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "D4 - Change branch (200)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payroll-officers/{{officer3Id}}/branch?branchNumber=4",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payroll-officers",
+                "{{officer3Id}}",
+                "branch"
+              ],
+              "query": [
+                {
+                  "key": "branchNumber",
+                  "value": "4"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "D4 - Change branch (409 taken)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payroll-officers/{{officer3Id}}/branch?branchNumber=1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payroll-officers",
+                "{{officer3Id}}",
+                "branch"
+              ],
+              "query": [
+                {
+                  "key": "branchNumber",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "D4 - Change branch (404 branch)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payroll-officers/{{officer3Id}}/branch?branchNumber=99",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payroll-officers",
+                "{{officer3Id}}",
+                "branch"
+              ],
+              "query": [
+                {
+                  "key": "branchNumber",
+                  "value": "99"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "D4 - Change branch (404 officer)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payroll-officers/{{unknownId}}/branch?branchNumber=4",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payroll-officers",
+                "{{unknownId}}",
+                "branch"
+              ],
+              "query": [
+                {
+                  "key": "branchNumber",
+                  "value": "4"
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
   ],
   "variable": [
@@ -1993,6 +2349,14 @@
     },
     {
       "key": "deleteId",
+      "value": ""
+    },
+    {
+      "key": "approvedPayslipId",
+      "value": "505164ba-834f-4296-947b-df622a8af450"
+    },
+    {
+      "key": "newPayslipId",
       "value": ""
     }
   ]
