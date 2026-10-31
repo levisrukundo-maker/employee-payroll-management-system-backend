@@ -2268,6 +2268,238 @@
           }
         }
       ]
+    },
+    {
+      "name": "Part E",
+      "item": [
+        {
+          "name": "E1 - Write a disbursement (201)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/disbursements/save?payslipId={{approvedPayslipId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "disbursements",
+                "save"
+              ],
+              "query": [
+                {
+                  "key": "payslipId",
+                  "value": "{{approvedPayslipId}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentChannel\": \"Bank of Kigali\",\n  \"reference\": \"TRF-2026-0931\",\n  \"amountRwf\": 450000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "E1 - Write a disbursement (400 not APPROVED)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/disbursements/save?payslipId={{payslipId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "disbursements",
+                "save"
+              ],
+              "query": [
+                {
+                  "key": "payslipId",
+                  "value": "{{payslipId}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentChannel\": \"Bank of Kigali\",\n  \"reference\": \"TRF-2026-0932\",\n  \"amountRwf\": 420000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "E1 - Write a disbursement (404 payslip)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/disbursements/save?payslipId={{unknownId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "disbursements",
+                "save"
+              ],
+              "query": [
+                {
+                  "key": "payslipId",
+                  "value": "{{unknownId}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentChannel\": \"Bank of Kigali\",\n  \"reference\": \"TRF-2026-0933\",\n  \"amountRwf\": 450000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "E - Get all disbursements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/disbursements/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "disbursements",
+                "all"
+              ]
+            }
+          }
+        },
+        {
+          "name": "E2 - Disbursement history of an employee",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/disbursements/employee/EMP-0042",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "disbursements",
+                "employee",
+                "EMP-0042"
+              ]
+            }
+          }
+        },
+        {
+          "name": "E2 - Disbursement history of an employee (empty list)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/disbursements/employee/EMP-0046",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "disbursements",
+                "employee",
+                "EMP-0046"
+              ]
+            }
+          }
+        },
+        {
+          "name": "E3 - Delete a disbursement (200)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/disbursements/delete/{{disbursementId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "disbursements",
+                "delete",
+                "{{disbursementId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "E3 - Delete a disbursement (404)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/disbursements/delete/{{unknownId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "disbursements",
+                "delete",
+                "{{unknownId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "E3 - Delete a payslip that has disbursements (409)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payslips/delete/{{approvedPayslipId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payslips",
+                "delete",
+                "{{approvedPayslipId}}"
+              ]
+            }
+          }
+        }
+      ]
     }
   ],
   "variable": [
@@ -2357,6 +2589,10 @@
     },
     {
       "key": "newPayslipId",
+      "value": ""
+    },
+    {
+      "key": "disbursementId",
       "value": ""
     }
   ]

@@ -71,6 +71,8 @@ public class PayslipController {
 		String message = payslipService.deletePayslip(id);
 		if (message.equals("Payslip deleted successfully")) {
 			return new ResponseEntity<>(message, HttpStatus.OK);
+		} else if (message.equals("That payslip has disbursements, delete them first")) {
+			return new ResponseEntity<>(message, HttpStatus.CONFLICT);
 		} else {
 			return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
 		}

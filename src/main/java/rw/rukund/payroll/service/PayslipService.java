@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rw.rukund.payroll.model.Payslip;
 import rw.rukund.payroll.model.PayslipStatus;
+import rw.rukund.payroll.repository.DisbursementRepository;
 import rw.rukund.payroll.repository.PayslipRepository;
 
 import java.time.LocalDate;
@@ -16,6 +17,9 @@ public class PayslipService {
 
 	@Autowired
 	private PayslipRepository payslipRepository;
+
+	@Autowired
+	private DisbursementRepository disbursementRepository;
 
 	public String savePayslip(Payslip payslip) {
 		if (payslip.getPayDate().isBefore(LocalDate.now())) {
@@ -53,8 +57,12 @@ public class PayslipService {
 	}
 
 	public String deletePayslip(UUID id) {
-		if (!payslipRepository.existsById(id)) {
+		Optional<Payslip> existing = payslipRepository.findById(id);
+		if (existing.isEmpty()) {
 			return "The payslip with that id does not exist";
+		}
+		if (disbursementRepository.existsByPayslip(existing.get())) {
+			return "That payslip has disbursements, delete them first";
 		}
 		payslipRepository.deleteById(id);
 		return "Payslip deleted successfully";
