@@ -2500,6 +2500,86 @@
           }
         }
       ]
+    },
+    {
+      "name": "Part F",
+      "item": [
+        {
+          "name": "F1 - Payslips per status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payslips/stats/by-status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payslips",
+                "stats",
+                "by-status"
+              ]
+            }
+          }
+        },
+        {
+          "name": "F2 - Payroll officer is absent (nothing to cancel)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payslips/cancel-day?payrollOfficerId={{officer2Id}}&date=2026-10-20",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payslips",
+                "cancel-day"
+              ],
+              "query": [
+                {
+                  "key": "payrollOfficerId",
+                  "value": "{{officer2Id}}"
+                },
+                {
+                  "key": "date",
+                  "value": "2026-10-20"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "F2 - Payroll officer is absent (run last in the demo)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payslips/cancel-day?payrollOfficerId={{officer1Id}}&date=2026-10-20",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payslips",
+                "cancel-day"
+              ],
+              "query": [
+                {
+                  "key": "payrollOfficerId",
+                  "value": "{{officer1Id}}"
+                },
+                {
+                  "key": "date",
+                  "value": "2026-10-20"
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
   ],
   "variable": [

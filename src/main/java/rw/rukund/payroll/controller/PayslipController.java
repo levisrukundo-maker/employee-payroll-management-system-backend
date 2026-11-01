@@ -101,4 +101,15 @@ public class PayslipController {
 			return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
 		}
 	}
+
+	@GetMapping("/stats/by-status")
+	public ResponseEntity<List<Object[]>> countPayslipsByStatus() {
+		return new ResponseEntity<>(payslipService.countPayslipsByStatus(), HttpStatus.OK);
+	}
+
+	@PatchMapping("/cancel-day")
+	public ResponseEntity<String> cancelDay(@RequestParam UUID payrollOfficerId, @RequestParam String date) {
+		LocalDate day = LocalDate.parse(date);
+		return new ResponseEntity<>(payslipService.cancelDay(payrollOfficerId, day), HttpStatus.OK);
+	}
 }

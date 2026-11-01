@@ -2,6 +2,7 @@ package rw.rukund.payroll.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import rw.rukund.payroll.model.Payslip;
 import rw.rukund.payroll.model.PayslipStatus;
 import rw.rukund.payroll.repository.DisbursementRepository;
@@ -95,5 +96,15 @@ public class PayslipService {
 		payslip.setStatus(status);
 		payslipRepository.save(payslip);
 		return "Payslip status updated successfully";
+	}
+
+	public List<Object[]> countPayslipsByStatus() {
+		return payslipRepository.countPayslipsByStatus();
+	}
+
+	@Transactional
+	public String cancelDay(UUID payrollOfficerId, LocalDate date) {
+		int cancelled = payslipRepository.cancelDay(payrollOfficerId, date, PayslipStatus.REJECTED, PayslipStatus.APPROVED);
+		return cancelled + " payslips cancelled";
 	}
 }
